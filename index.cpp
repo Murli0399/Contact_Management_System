@@ -1,19 +1,24 @@
+// Contact Management System in C++
+
 #include <iostream>
 #include <fstream>
 #include <string>
 #include <vector>
 using namespace std;
 
+// Contact class to store name and phone details
 class Contact
 {
 public:
   string name;
   string phone;
 
+  // Constructor to initialize name and phone
   Contact(const string &name, const string &phone)
       : name(name), phone(phone) {}
 };
 
+// ContactManagementSystem class to manage contacts
 class ContactManagementSystem
 {
 private:
@@ -21,9 +26,11 @@ private:
   string fileName;
 
 public:
+  // Constructor to initialize with file name
   ContactManagementSystem(const string &fileName)
       : fileName(fileName) {}
 
+  // Function to load contacts from file
   void loadContactsFromFile()
   {
     ifstream inputFile(fileName);
@@ -33,6 +40,7 @@ public:
       return;
     }
 
+    // Read name and phone from file and add to contacts vector
     string name, phone;
     while (inputFile >> name >> phone)
     {
@@ -41,6 +49,7 @@ public:
     inputFile.close();
   }
 
+  // Function to save contacts to file
   void saveContactsToFile()
   {
     ofstream outputFile(fileName);
@@ -50,6 +59,7 @@ public:
       return;
     }
 
+    // Write contacts' name and phone to file
     for (const auto &contact : contacts)
     {
       outputFile << contact.name << " " << contact.phone << "\n";
@@ -57,11 +67,13 @@ public:
     outputFile.close();
   }
 
+  // Function to add a new contact
   void addContact(const Contact &contact)
   {
     contacts.push_back(contact);
   }
 
+  // Function to view all contacts
   void viewContacts()
   {
     for (const auto &contact : contacts)
@@ -70,6 +82,7 @@ public:
     }
   }
 
+  // Function to search for a contact by name
   Contact *searchContact(const string &name)
   {
     for (auto &contact : contacts)
@@ -83,16 +96,22 @@ public:
   }
 };
 
+// Main function
 int main()
 {
+  // File to store contacts
   const string fileName = "contacts.txt";
+
+  // Create ContactManagementSystem object and load contacts from file
   ContactManagementSystem cms(fileName);
   cms.loadContactsFromFile();
 
+  // Variables for user input
   int choice;
   string name;
   string phone;
 
+  // Main loop for user interaction
   while (true)
   {
     cout << "\n==== Contact Management System ====\n";
@@ -102,7 +121,8 @@ int main()
     cout << "4. Exit\n";
     cout << "Enter your choice: ";
 
-    cin >> choice; // Remove duplicate declaration
+    // Get user choice
+    cin >> choice;
 
     try
     {
@@ -110,6 +130,7 @@ int main()
       {
       case 1:
       {
+        // Add a new contact
         cout << "Enter name: ";
         cin.ignore();
         getline(cin, name);
@@ -122,10 +143,12 @@ int main()
         break;
       }
       case 2:
+        // View all contacts
         cms.viewContacts();
         break;
       case 3:
       {
+        // Search for a contact by name
         cout << "Enter the name to search: ";
         cin.ignore();
         getline(cin, name);
@@ -142,6 +165,7 @@ int main()
         break;
       }
       case 4:
+        // Exit the program
         cout << "Exiting the program...\n";
         return 0;
       default:
@@ -151,6 +175,7 @@ int main()
     }
     catch (const exception &e)
     {
+      // Catch and display any exceptions
       cerr << "Error: " << e.what() << "\n";
     }
   }
