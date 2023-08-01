@@ -2,7 +2,7 @@
 
 This Contact Management System is a C++ application that allows users to manage their contacts effectively. It provides an easy-to-use command-line interface to add, view, and search contacts. The system stores contact information, including names and phone numbers, in a file named "contacts.txt," ensuring data persistence between program executions.
 
-## Features
+## Features:
 
 - **Add Contact:** Users can add new contacts to the system by providing the contact's name and phone number.
 
