@@ -27,3 +27,17 @@ This Contact Management System is a C++ application that allows users to manage 
 The contact information is stored in "contacts.txt." Make sure this file is present in the same directory as the executable.
 
 Feel free to contribute to the project by adding new features, enhancing existing functionalities, or fixing any bugs you encounter. We welcome your valuable contributions! Happy coding!
+
+## 🔗 Contact Me
+[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://murli0399.github.io/)
+
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/murli-khaire/)
+
+
+## Authors
+
+- [Murli Khaire](https://github.com/Murli0399)
+
+## Acknowledgements
+
+- [Masai School](https://www.masaischool.com/)
